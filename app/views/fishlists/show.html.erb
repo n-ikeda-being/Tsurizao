@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @fishlist %>
+
+<div>
+  <%= link_to "Edit this fishlist", edit_fishlist_path(@fishlist) %> |
+  <%= link_to "Back to fishlists", fishlists_path %>
+
+  <%= button_to "Destroy this fishlist", @fishlist, method: :delete %>
+</div>

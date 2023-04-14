@@ -1,0 +1,2 @@
+class Fishlist < ApplicationRecord
+end

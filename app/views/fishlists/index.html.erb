@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Fishlists</h1>
+
+<div id="fishlists">
+  <% @fishlists.each do |fishlist| %>
+    <%= render fishlist %>
+    <p>
+      <%= link_to "Show this fishlist", fishlist %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New fishlist", new_fishlist_path %>
