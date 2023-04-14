@@ -1,24 +1,6 @@
-# README
+# Tsurizao
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+このアプリは釣り人のために作られました。<br>
+釣った魚の記録をしたり、どこで何が釣れるか見たり、いいねやコメントをもらい交流することができます。
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+このアプリに要望がある場合は、…。
