@@ -6,9 +6,9 @@
   <% @fishlists.each do |fishlist| %>
     <%= render fishlist %>
     <p>
-      <%= link_to "Show this fishlist", fishlist %>
+      <%= link_to t('views.common.show'), fishlist %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New fishlist", new_fishlist_path %>
+<%= link_to t('views.common.new'), new_fishlist_path %>

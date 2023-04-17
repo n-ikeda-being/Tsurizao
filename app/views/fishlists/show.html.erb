@@ -3,8 +3,8 @@
 <%= render @fishlist %>
 
 <div>
-  <%= link_to "Edit this fishlist", edit_fishlist_path(@fishlist) %> |
-  <%= link_to "Back to fishlists", fishlists_path %>
+  <%= link_to t('views.common.edit'), edit_fishlist_path(@fishlist) %> |
+  <%= link_to t('views.common.back'), fishlists_path %>
 
-  <%= button_to "Destroy this fishlist", @fishlist, method: :delete %>
+  <%= button_to t('views.common.destroy'), @fishlist, method: :delete %>
 </div>
