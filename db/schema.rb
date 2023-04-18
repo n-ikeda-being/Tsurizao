@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_14_083815) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_18_011356) do
+  create_table "areas", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "fishlists", force: :cascade do |t|
     t.date "date"
     t.time "time"
@@ -22,6 +27,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_14_083815) do
     t.integer "fishweight"
     t.string "fishingmethod"
     t.string "fishimg"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "prefecture_id"
+    t.string "prefecture_name"
+  end
+
+  create_table "prefectures", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
