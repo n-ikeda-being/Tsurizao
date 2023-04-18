@@ -270,9 +270,9 @@ ja:
       notice_create: "%{name}が作成されました。"
       notice_update: "%{name}が更新されました。"
       notice_destroy: "%{name}が削除されました。"
-      List_was_successfully_created: 作成されました
-      List_was_successfully_updated: 更新されました
-      List_was_successfully_destroyed: 削除されました
+      List_was_successfully_created: 作成しました
+      List_was_successfully_updated: 更新しました
+      List_was_successfully_destroyed: 削除しました
   relationships:
     create:
       notice: "フォローしました。"

@@ -25,7 +25,7 @@ class FishlistsController < ApplicationController
 
     respond_to do |format|
       if @fishlist.save
-        format.html { redirect_to fishlist_url(@fishlist), notice: "Fishlist was successfully created." }
+        format.html { redirect_to fishlist_url(@fishlist), notice: t('controllers.common.List_was_successfully_created') }
         format.json { render :show, status: :created, location: @fishlist }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class FishlistsController < ApplicationController
   def update
     respond_to do |format|
       if @fishlist.update(fishlist_params)
-        format.html { redirect_to fishlist_url(@fishlist), notice: "Fishlist was successfully updated." }
+        format.html { redirect_to fishlist_url(@fishlist), notice: t('controllers.common.List_was_successfully_updated') }
         format.json { render :show, status: :ok, location: @fishlist }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class FishlistsController < ApplicationController
     @fishlist.destroy
 
     respond_to do |format|
-      format.html { redirect_to fishlists_url, notice: "Fishlist was successfully destroyed." }
+      format.html { redirect_to fishlists_url, notice: t('controllers.common.List_was_successfully_destroyed') }
       format.json { head :no_content }
     end
   end
