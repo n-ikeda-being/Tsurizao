@@ -234,6 +234,9 @@ ja:
       mypage: マイページ
       allfishes: 他の人の投稿を見る
       newpost: 最新の投稿
+      creater: 作成者：
+      created_date: 作成日：
+      update_date: 最終更新日：
     pagination:
       first: '最初'
       last: '最後'
