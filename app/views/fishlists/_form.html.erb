@@ -59,9 +59,11 @@
   <div>
     <strong><%= form.label t('views.common.fishimg'), style: "display: block" %></strong>
       <% if fishlist.fishimg.attached? %>
-        <%= image_tag fishlist.fishimg,size: '50x50' %>
+          <% fishlist.fishimg.each do |img| %>
+            <%= image_tag img,size: '50x50' %>
+          <% end %>
       <% end %>
-      <p>写真を変更または新規で登録する場合：<%= form.file_field :fishimg %></p>
+      <p>写真を追加できます：<%= form.file_field :fishimg, multiple: true %>
   </div>
 
   <div>

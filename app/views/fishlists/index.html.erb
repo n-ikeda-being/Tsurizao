@@ -1,4 +1,5 @@
-<h1>Fishlists</h1>
+<%= link_to t('views.common.new'), new_fishlist_path %>
+<h1><%= t('views.common.newpost') %></h1>
 
 <div id="fishlists">
   <% @fishlists.each do |fishlist| %>
@@ -8,5 +9,3 @@
     </p>
   <% end %>
 </div>
-
-<%= link_to t('views.common.new'), new_fishlist_path %>

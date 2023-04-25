@@ -6,7 +6,7 @@
 
   <p>
     <strong><%= t('views.common.time') %></strong>
-    <%= fishlist.time %>
+    <%= fishlist.time.strftime("%X") %>
   </p>
 
   <p>
@@ -47,7 +47,9 @@
   <p>
     <strong><%= t('views.common.fishimg') %></strong>
     <% if fishlist.fishimg.attached? %>
-      <%= image_tag fishlist.fishimg,size: '50x50' %>
+      <% fishlist.fishimg.each do |img| %>
+        <%= image_tag img,size: '200x200' %>
+      <% end %>
     <% end %>
   </p>
 
