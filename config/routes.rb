@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  get 'users/index'
-  get 'users/show'
-  devise_for :users
-  root 'fishlists#index'
+  devise_for :users, controllers: {registrations: 'users/registrations'}
+  get '/', to: 'fishlists#index'
   resources :fishlists
+  resources :users, only: [:index, :show]
 end

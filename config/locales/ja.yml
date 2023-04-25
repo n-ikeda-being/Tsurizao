@@ -231,6 +231,8 @@ ja:
       fishweight: 重さ
       fishingmethod: 釣り方
       fishimg: 写真
+      mypage: マイページ
+      allfishes: 他の人の投稿を見る
     pagination:
       first: '最初'
       last: '最後'
