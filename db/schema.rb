@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_25_012511) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_25_025349) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -60,6 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_012511) do
     t.integer "prefecture_id"
     t.string "prefecture_name"
     t.integer "user_id"
+    t.string "user_name"
   end
 
   create_table "prefectures", force: :cascade do |t|
