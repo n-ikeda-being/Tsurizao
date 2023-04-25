@@ -12,53 +12,56 @@
   <% end %>
 
   <div>
-    <%= form.label t('views.common.date'), style: "display: block" %>
+    <strong><%= form.label t('views.common.date'), style: "display: block" %></strong>
     <%= form.date_field :date %>
   </div>
 
   <div>
-    <%= form.label t('views.common.time'), style: "display: block" %>
+    <strong><%= form.label t('views.common.time'), style: "display: block" %></strong>
     <%= form.time_field :time %>
   </div>
 
   <div>
-    <%= form.label t('views.common.prefecture'), style: "display: block" %>
+    <strong><%= form.label t('views.common.prefecture'), style: "display: block" %></strong>
     <%= form.collection_select(:prefecture_id, Prefecture.all, :id, :name,{include_blank: "---"} ) %>
   </div>
 
   <div>
-    <%= form.label t('views.common.place'), style: "display: block" %>
+    <strong><%= form.label t('views.common.place'), style: "display: block" %></strong>
     <%= form.text_field :place %>
   </div>
 
   <div>
-    <%= form.label t('views.common.map'), style: "display: block" %>
+    <strong><%= form.label t('views.common.map'), style: "display: block" %></strong>
     <%= form.text_field :map %>
   </div>
 
   <div>
-    <%= form.label t('views.common.fishname'), style: "display: block" %>
+    <strong><%= form.label t('views.common.fishname'), style: "display: block" %></strong>
     <%= form.text_field :fishname %>
   </div>
 
   <div>
-    <%= form.label t('views.common.fishlength'), style: "display: block" %>
-    <%= form.number_field :fishlength %>
+    <strong><%= form.label t('views.common.fishlength'), style: "display: block" %></strong>
+    <%= form.number_field :fishlength %> cm
   </div>
 
   <div>
-    <%= form.label t('views.common.fishweight'), style: "display: block" %>
-    <%= form.number_field :fishweight %>
+    <strong><%= form.label t('views.common.fishweight'), style: "display: block" %></strong>
+    <%= form.number_field :fishweight %> g
   </div>
 
   <div>
-    <%= form.label t('views.common.fishingmethod'), style: "display: block" %>
+    <strong><%= form.label t('views.common.fishingmethod'), style: "display: block" %></strong>
     <%= form.text_field :fishingmethod %>
   </div>
 
   <div>
-    <%= form.label t('views.common.fishimg'), style: "display: block" %>
-    <%= form.text_field :fishimg %>
+    <strong><%= form.label t('views.common.fishimg'), style: "display: block" %></strong>
+      <% if fishlist.fishimg.attached? %>
+        <%= image_tag fishlist.fishimg,size: '50x50' %>
+      <% end %>
+      <p>写真を変更または新規で登録する場合：<%= form.file_field :fishimg %></p>
   </div>
 
   <div>

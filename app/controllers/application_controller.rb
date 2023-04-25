@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
         keys = %i[email name avatar]
         devise_parameter_sanitizer.permit(:sign_up, keys: keys)
         devise_parameter_sanitizer.permit(:account_update, keys: keys)
+        @users = User.with_attached_avatar.order(:id).page(params[:page])
     end
 
     # ログイン後

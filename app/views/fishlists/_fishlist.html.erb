@@ -1,52 +1,54 @@
 <div id="<%= dom_id fishlist %>">
   <p>
-    <strong><%= t('views.common.date') %>：</strong>
+    <strong><%= t('views.common.date') %></strong>
     <%= fishlist.date %>
   </p>
 
   <p>
-    <strong><%= t('views.common.time') %>：</strong>
+    <strong><%= t('views.common.time') %></strong>
     <%= fishlist.time %>
   </p>
 
   <p>
-    <strong><%= t('views.common.prefecture') %>：</strong>
+    <strong><%= t('views.common.prefecture') %></strong>
     <%= fishlist.prefecture %>
   </p>
 
   <p>
-    <strong><%= t('views.common.place') %>：</strong>
+    <strong><%= t('views.common.place') %></strong>
     <%= fishlist.place %>
   </p>
 
   <p>
-    <strong><%= t('views.common.map') %>：</strong>
+    <strong><%= t('views.common.map') %></strong>
     <%= fishlist.map %>
   </p>
 
   <p>
-    <strong><%= t('views.common.fishname') %>：</strong>
+    <strong><%= t('views.common.fishname') %></strong>
     <%= fishlist.fishname %>
   </p>
 
   <p>
-    <strong><%= t('views.common.fishlength') %>：</strong>
+    <strong><%= t('views.common.fishlength') %></strong>
     <%= fishlist.fishlength %>
   </p>
 
   <p>
-    <strong><%= t('views.common.fishweight') %>：</strong>
+    <strong><%= t('views.common.fishweight') %></strong>
     <%= fishlist.fishweight %>
   </p>
 
   <p>
-    <strong><%= t('views.common.fishingmethod') %>：</strong>
+    <strong><%= t('views.common.fishingmethod') %></strong>
     <%= fishlist.fishingmethod %>
   </p>
 
   <p>
-    <strong><%= t('views.common.fishimg') %>：</strong>
-    <%= fishlist.fishimg %>
+    <strong><%= t('views.common.fishimg') %></strong>
+    <% if fishlist.fishimg.attached? %>
+      <%= image_tag fishlist.fishimg,size: '50x50' %>
+    <% end %>
   </p>
 
 </div>

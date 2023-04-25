@@ -221,16 +221,16 @@ ja:
       minimum_length: "%{length}文字以上"
       send: 送信
       no_comment: コメントはまだありません
-      date: 日付
-      time: 時間
-      prefecture: 都道府県
-      place: 場所
-      map: 地図
-      fishname: 魚の種類
-      fishlength: 大きさ
-      fishweight: 重さ
-      fishingmethod: 釣り方
-      fishimg: 写真
+      date: 日付：
+      time: 時間：
+      prefecture: 都道府県：
+      place: 場所：
+      map: 地図：
+      fishname: 魚の種類：
+      fishlength: 大きさ：
+      fishweight: 重さ：
+      fishingmethod: 釣り方：
+      fishimg: 写真：
       mypage: マイページ
       allfishes: 他の人の投稿を見る
     pagination:
