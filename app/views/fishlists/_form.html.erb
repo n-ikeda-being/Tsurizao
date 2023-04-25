@@ -23,7 +23,7 @@
 
   <div>
     <strong><%= form.label t('views.common.prefecture'), style: "display: block" %></strong>
-    <%= form.collection_select(:prefecture_id, Prefecture.all, :id, :name,{include_blank: "---"} ) %>
+    <%= form.collection_select(:prefecture_id, Prefecture.all, :id, :name) %>
   </div>
 
   <div>
