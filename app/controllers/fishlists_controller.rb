@@ -22,6 +22,7 @@ class FishlistsController < ApplicationController
   # POST /fishlists or /fishlists.json
   def create
     @fishlist = Fishlist.new(fishlist_params)
+    @fishlist.user_id = current_user.id
 
     respond_to do |format|
       if @fishlist.save

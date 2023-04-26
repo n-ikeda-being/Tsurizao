@@ -1,8 +1,10 @@
 <%= render @fishlist %>
 
 <div>
-  <%= link_to t('views.common.edit'), edit_fishlist_path(@fishlist) %> |
-  <%= link_to t('views.common.back'), fishlists_path %>
+  <% if @fishlist.user.id == current_user.id %>
+    <%= link_to t('views.common.edit'), edit_fishlist_path(@fishlist) %>
+    <%= button_to t('views.common.destroy'), @fishlist, method: :delete %>
+  <% end %>
 
-  <%= button_to t('views.common.destroy'), @fishlist, method: :delete %>
+  <%= link_to t('views.common.back'), fishlists_path %>
 </div>

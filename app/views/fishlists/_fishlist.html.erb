@@ -1,6 +1,11 @@
 <div id="<%= dom_id fishlist %>">
 
   <p>
+    <strong><%= t('views.common.creater') %></strong>
+    <%= fishlist.user.name %>
+  </p>
+
+  <p>
     <strong><%= t('views.common.date') %></strong>
     <%= fishlist.date %>
   </p>
