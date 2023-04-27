@@ -252,7 +252,7 @@ ja:
       destroy: フォロー解除する
       user: ユーザー詳細
       email: メールアドレス
-      name: 名前
+      name: アカウント名
       avatar: アイコン
       followings: フォロー一覧
       followers: フォロワー一覧
@@ -263,7 +263,7 @@ ja:
     index:
       user: ユーザー一覧
       email: メールアドレス
-      name: 名前
+      name: アカウント名
       avatar: アイコン
     followings:
       index:
