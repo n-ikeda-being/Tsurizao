@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {registrations: 'users/registrations'}
-  get '/', to: 'fishlists#index'
-  resources :fishlists
+  root to: 'fishlists#index'
+  resources :fishlists do
+    resources :comments
+  end
   resources :users, only: [:index, :show]
 end

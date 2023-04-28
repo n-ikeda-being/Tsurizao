@@ -6,5 +6,23 @@
     <%= button_to t('views.common.destroy'), @fishlist, method: :delete %>
   <% end %>
 
+<h2>コメント投稿</h2>
+<%= form_with model: [@fishlist, @comment], method: :post do |f| %>
+  <%= f.text_area :comment_content %>
+  <%= f.submit '投稿' %>
+<% end %>
+
+<% if @comments.empty? %>
+    コメントはまだありません<br>
+<% else %>
+  <h2>コメント一覧</h2>
+  <strong><%= t('views.common.comment_text') %></strong>
+  <strong><%= t('views.common.comment_user') %></strong><br>
+  <% @comments.each do |c| %>
+    <%= c.comment_content %>
+    <%= c.user_name %><br>
+  <% end %>
+<% end %>
+
   <%= link_to t('views.common.back'), fishlists_path %>
 </div>
