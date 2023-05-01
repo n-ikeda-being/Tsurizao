@@ -11,6 +11,7 @@ class FishlistsController < ApplicationController
     @fishlist = Fishlist.find(params[:id])
     @comment = Comment.new
     @comments = @fishlist.comments
+    @likes_count = Favorite.where(fishlist_id: @fishlist.id).count
   end
 
   # GET /fishlists/new

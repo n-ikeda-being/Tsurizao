@@ -6,5 +6,6 @@ class User < ApplicationRecord
         :recoverable, :rememberable, :validatable
   has_many :fishlists, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   validates :name, presence: true, uniqueness: true, length: { minimum: 5 }
 end

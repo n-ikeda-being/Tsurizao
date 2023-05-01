@@ -1,5 +1,18 @@
 <%= render @fishlist %>
 
+💓<%=  @likes_count %>
+<% if @fishlist.user.id != current_user.id %>
+  <% if @fishlist.favorited?(current_user) %>
+      <%= button_to fishlist_favorite_path(@fishlist.id), method: :delete do %>
+          <span style="color:red;">❤︎</span> いいねを送りました！
+      <% end %>
+  <% else %>
+      <%= button_to fishlist_favorites_path(@fishlist.id), method: :post do %>
+          <span>❤︎ いいねを送りましょう！</span>
+      <% end %>
+  <% end %>
+<% end %><br>
+
 <div>
   <% if @fishlist.user.id == current_user.id %>
     <%= link_to t('views.common.edit'), edit_fishlist_path(@fishlist) %>
@@ -7,7 +20,7 @@
   <% end %>
 
 <h2>コメント投稿</h2>
-<%= form_with model: [@fishlist, @comment], method: :post do |f| %>
+<%= form_with model: [@fishlist, @comment], method: :fishlist do |f| %>
   <%= f.text_area :comment_content %>
   <%= f.submit '投稿' %>
 <% end %>
@@ -19,7 +32,7 @@
   <% @comments.each do |c| %>
     <strong><%= c.user_name %></strong> さん：
     <%= c.comment_content %>
-      <% if c.user_id == @fishlist.user.id %>
+      <% if c.user_id == current_user.id %>
         <div style= "display: inline-block;">
           <div style="margin: 5px;">
             <%= button_to '削除', fishlist_comment_path(@fishlist, c), method: :delete %>
