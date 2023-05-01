@@ -3,8 +3,68 @@
 
 <div id="fishlists">
   <% @fishlists.each do |fishlist| %>
-    <%= render fishlist %>
-    <p>
+
+  <p>
+    <strong><%= t('views.common.creater') %></strong>
+    <%= fishlist.user.name %>
+  </p>
+
+  <p>
+    <strong><%= t('views.common.date') %></strong>
+    <%= fishlist.date %>
+  </p>
+
+  <p>
+    <strong><%= t('views.common.time') %></strong>
+    <% unless fishlist.time.nil? %>
+      <% if fishlist.time.strftime("%H") && (00..11).cover?(fishlist.time.strftime("%H").to_i) %>
+        AM
+      <% else %>
+        PM
+      <% end %>
+      <%= fishlist.time.strftime("%H:%M") %>
+    <% end %>
+  </p>
+
+  <p>
+    <strong><%= t('views.common.prefecture') %></strong>
+    <%= fishlist.prefecture.name %>
+  </p>
+
+  <p>
+    <strong><%= t('views.common.place') %></strong>
+    <%= fishlist.place %>
+  </p>
+
+  <p>
+    <strong><%= t('views.common.fishname') %></strong>
+    <%= fishlist.fishname %>
+  </p>
+
+  <p>
+    <strong><%= t('views.common.fishlength') %></strong>
+    <%= fishlist.fishlength %>
+  </p>
+
+  <p>
+    <strong><%= t('views.common.fishweight') %></strong>
+    <%= fishlist.fishweight %>
+  </p>
+
+  <p>
+    <strong><%= t('views.common.fishingmethod') %></strong>
+    <%= fishlist.fishingmethod %>
+  </p>
+
+  <p>
+    <% if fishlist.fishimg.attached? %>
+      <% fishlist.fishimg.each do |img| %>
+        <%= image_tag img,size: '100x100' %>
+      <% end %>
+    <% end %>
+  </p>
+
+  <p>
       <%= link_to t('views.common.show'), fishlist %>
     </p>
   <% end %>
