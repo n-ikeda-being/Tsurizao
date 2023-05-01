@@ -11,6 +11,9 @@ class CommentsController < ApplicationController
         end
     end
 
+    def destroy
+    end
+
     private
     def comment_params
         params.require(:comment).permit(:comment_content).merge(user_id: current_user.id, fishlist_id: params[:fishlist_id])
