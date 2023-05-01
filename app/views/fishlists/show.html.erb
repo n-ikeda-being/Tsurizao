@@ -16,11 +16,9 @@
     コメントはまだありません<br>
 <% else %>
   <h2>コメント一覧</h2>
-  <strong><%= t('views.common.comment_text') %></strong>
-  <strong><%= t('views.common.comment_user') %></strong><br>
   <% @comments.each do |c| %>
-    <%= c.comment_content %>
-    <%= c.user_name %><br>
+    <strong><%= c.user_name %></strong> さん：
+    <%= c.comment_content %><br>
   <% end %>
 <% end %>
 
