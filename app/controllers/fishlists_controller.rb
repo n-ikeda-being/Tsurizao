@@ -8,7 +8,6 @@ class FishlistsController < ApplicationController
 
   # GET /fishlists/1 or /fishlists/1.json
   def show
-    @fishlist = Fishlist.find(params[:id])
     @comment = Comment.new
     @comments = @fishlist.comments
     @likes_count = Favorite.where(fishlist_id: @fishlist.id).count
