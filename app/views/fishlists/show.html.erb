@@ -18,7 +18,14 @@
   <h2>コメント一覧</h2>
   <% @comments.each do |c| %>
     <strong><%= c.user_name %></strong> さん：
-    <%= c.comment_content %><br>
+    <%= c.comment_content %>
+      <% if c.user_id == @fishlist.user.id %>
+        <div style= "display: inline-block;">
+          <div style="margin: 5px;">
+            <%= button_to '削除', fishlist_comment_path(@fishlist, c), method: :delete %>
+          </div>
+        </div>
+      <% end %><br>
   <% end %>
 <% end %>
 

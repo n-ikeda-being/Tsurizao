@@ -9,8 +9,8 @@ class FishlistsController < ApplicationController
   # GET /fishlists/1 or /fishlists/1.json
   def show
     @fishlist = Fishlist.find(params[:id])
-    @comments = @fishlist.comments
     @comment = Comment.new
+    @comments = @fishlist.comments
   end
 
   # GET /fishlists/new
