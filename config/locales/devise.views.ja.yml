@@ -11,7 +11,7 @@ ja:
         current_sign_in_ip: 現在のログインIPアドレス
         email: メールアドレス
         name: アカウント名
-        name_with_validation: アカウント名(半角英数字5文字以上) ※公開されます
+        name_with_validation: アカウント名(5文字以上) ※公開されます
         display_name: 表示名 ※公開されます
         avatar: アイコン
         encrypted_password: 暗号化パスワード
