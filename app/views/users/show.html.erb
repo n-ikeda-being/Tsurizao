@@ -14,15 +14,18 @@
 </p>
 
 <%= t('.followings_count') %>
-<%= link_to @user.followings.count, followings_user_path(@user.id) %>
+<%= link_to @user.followings.count, followings_user_path(@user) %>
 <%= t('.followers_count') %>
-<%= link_to @user.followers.count, followers_user_path(@user.id) %><br><br>
+<%= link_to @user.followers.count, followers_user_path(@user) %><br><br>
+
+<%= debug @user.id %>
+<%= debug current_user.id %>
 
 <% unless current_user == @user %>
     <% if current_user.following?(@user) %>
-        <%= link_to t('.unfollow'), user_follows_path(@user.id), method: :delete %>
+        <%= button_to t('.unfollow'), user_follows_path(@user), method: :delete %>
     <% else %>
-        <%= link_to t('.follow'), user_follows_path(@user.id), method: :post %>
+        <%= button_to t('.follow'), user_follows_path(@user), method: :post %>
     <% end %>
 <% end %>
 
