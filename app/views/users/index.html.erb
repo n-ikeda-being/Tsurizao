@@ -16,6 +16,8 @@
             <td>
             <% if user.avatar.attached? %>
                 <%= image_tag user.avatar,size: '50x50' %>
+            <% else %>
+                <%= image_tag "noimage.jpeg",size: '50x50' %>
             <% end %>
             </td>
             <td><%= link_to t('views.common.show'), user %></td>

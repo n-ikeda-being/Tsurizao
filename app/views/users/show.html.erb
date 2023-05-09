@@ -8,8 +8,9 @@
 <p>
     <strong><%= User.human_attribute_name(:avatar) %>:</strong>
     <% if @user.avatar.attached? %>
-        <br>
         <%= image_tag @user.avatar,size: '80x80' %>
+    <% else %>
+        <%= image_tag "noimage.jpeg",size: '80x80' %>
     <% end %>
 </p>
 
@@ -17,9 +18,6 @@
 <%= link_to @user.followings.count, followings_user_path(@user) %>
 <%= t('.followers_count') %>
 <%= link_to @user.followers.count, followers_user_path(@user) %><br><br>
-
-<%= debug @user.id %>
-<%= debug current_user.id %>
 
 <% unless current_user == @user %>
     <% if current_user.following?(@user) %>
