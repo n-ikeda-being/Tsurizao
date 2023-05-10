@@ -21,11 +21,53 @@
     <% end %>
 <% end %>
 
-<div id="fishlists" class="mx-3">
+<h2>過去の投稿一覧</h2>
+<div id="fishlists">
     <% if @fishlists.empty? %>
         まだ過去の投稿はありません<br>
     <% else %>
-        <%= link_to t('views.common.show'), fishlists_path(@user) %>
+        <div id="fishlists" class="mx-3">
+            <% @fishlists.each do |fishlist| %>
+                <p>
+                    <strong><%= t('views.common.date') %></strong>
+                    <%= fishlist.date %>
+                </p>
+
+                <p>
+                    <strong><%= t('views.common.prefecture') %></strong>
+                    <%= fishlist.prefecture.name %>
+                </p>
+
+                <p>
+                    <strong><%= t('views.common.place') %></strong>
+                    <%= fishlist.place %>
+                </p>
+
+                <p>
+                    <strong><%= t('views.common.fishname') %></strong>
+                    <%= fishlist.fishname %>
+                </p>
+
+                <p>
+                    <strong><%= t('views.common.fishingmethod') %></strong>
+                    <%= fishlist.fishingmethod %>
+                </p>
+
+                <p>
+                    <% if fishlist.fishimg.attached? %>
+                        <% fishlist.fishimg.each do |img| %>
+                            <%= image_tag img,size: '100x100' %>
+                        <% end %>
+                    <% end %>
+                </p>
+
+                <p>
+                    <%= link_to t('views.common.show'), fishlist %>
+                    </p>
+                <% end %>
+
+                <%= paginate @fishlists %>
+        </div>
     <% end %>
 </div>
 
