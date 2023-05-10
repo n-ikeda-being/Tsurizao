@@ -2,7 +2,7 @@
 
   <p>
     <strong><%= t('views.common.creater') %></strong>
-    <%= fishlist.user.name %>
+    <%= link_to fishlist.user.name, user_path(fishlist.user.id) %>
   </p>
 
   <p>

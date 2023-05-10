@@ -72,6 +72,7 @@
 </div>
 
 <% if current_user == @user %>
-<%= link_to t('views.common.edit'), edit_user_registration_path %> |
+<%= link_to t('views.common.edit'), edit_user_registration_path %><br>
 <% end %>
-<%= link_to t('views.common.back'), users_path %>
+
+<%= link_to t('views.common.fishlist_back'), fishlists_path %>
