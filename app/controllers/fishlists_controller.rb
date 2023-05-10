@@ -40,6 +40,14 @@ class FishlistsController < ApplicationController
 
   # PATCH/PUT /fishlists/1 or /fishlists/1.json
   def update
+
+    if params[:fishlist][:img_ids].present?
+      params[:fishlist][:img_ids].each do |image_id|
+        image = @fishlist.fishimg.find(image_id)
+        image.purge
+      end
+    end
+
     respond_to do |format|
       if @fishlist.update(fishlist_params)
         format.html { redirect_to fishlist_url(@fishlist), notice: t('controllers.common.List_was_successfully_updated') }
