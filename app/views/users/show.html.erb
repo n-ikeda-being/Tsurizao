@@ -1,5 +1,4 @@
-<h1><%= t('views.common.title_show', name: User.model_name.human) %></h1>
-
+<h1><%= t('.user') %></h1>
 
 <%= @user.name %><br>
 
@@ -21,6 +20,14 @@
         <%= button_to t('.follow'), user_follows_path(@user), method: :post %>
     <% end %>
 <% end %>
+
+<div id="fishlists" class="mx-3">
+    <% if @fishlists.empty? %>
+        まだ過去の投稿はありません<br>
+    <% else %>
+        <%= link_to t('views.common.show'), fishlists_path(@user) %>
+    <% end %>
+</div>
 
 <% if current_user == @user %>
 <%= link_to t('views.common.edit'), edit_user_registration_path %> |

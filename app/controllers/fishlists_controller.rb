@@ -3,7 +3,7 @@ class FishlistsController < ApplicationController
 
   # GET /fishlists or /fishlists.json
   def index
-    @fishlists = Fishlist.all.order(updated_at: :desc).page(params[:page]).per(2)
+    @fishlists = Fishlist.all.order(updated_at: :desc).page(params[:page]).per(9)
   end
 
   # GET /fishlists/1 or /fishlists/1.json

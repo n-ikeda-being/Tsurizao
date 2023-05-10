@@ -6,7 +6,7 @@
       <ul>
         <%= current_user.name %> でログイン中です
         <li>
-          <%= link_to t('views.common.mypage'), fishlists_path %>
+          <%= link_to t('views.common.mypage'), user_path(current_user) %>
         </li>
                 <li>
           <%= link_to t('views.common.allfishes'), fishlists_path %>
