@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     resources :favorites, only: [:create, :destroy]
   end
   resources :users, only: [:index, :show] do
+    collection do
+      get 'search'
+    end
     member do
       get :followings, :followers
     end

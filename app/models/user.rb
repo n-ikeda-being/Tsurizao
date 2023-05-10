@@ -16,6 +16,10 @@ class User < ApplicationRecord
   has_many :followings, through: :relationships, source: :followed
   has_many :followers, through: :reverse_of_relationships, source: :follower
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["name"]
+  end
+
   # フォローしたときの処理
   def follow(user_id)
     relationships.find_or_create_by(followed_id: user_id)
