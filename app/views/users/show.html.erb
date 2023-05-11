@@ -75,4 +75,22 @@
 <%= link_to t('views.common.edit'), edit_user_registration_path %><br>
 <% end %>
 
+<h2>いいねした投稿一覧</h2>
+<% if @favorites.exists? %>
+    <% @favorites.each  do |favorite| %>
+        <% @fishlists.each do |fishlist| %>
+            <p><strong><%= t('views.common.creater') %></strong><%= favorite.fishlist.user.name %></p>
+            <p><strong><%= t('views.common.date') %></strong><%= favorite.fishlist.date %></p>
+            <p><strong><%= t('views.common.prefecture') %></strong><%= favorite.fishlist.prefecture.name %></p>
+            <p><strong><%= t('views.common.place') %></strong><%= favorite.fishlist.place %></p>
+            <p><strong><%= t('views.common.fishname') %></strong><%= favorite.fishlist.fishname %></p>
+            <%= link_to t('views.common.show'), fishlist %>
+        <% end %>
+    <% end %>
+<% else %>
+    いいねした投稿はありません<br>
+<% end  %>
+<%= paginate @fishlists %>
+
+
 <%= link_to t('views.common.fishlist_back'), fishlists_path %>

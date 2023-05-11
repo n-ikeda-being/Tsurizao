@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @fishlists = @user.fishlists.page(params[:page]).per(9).order('updated_at DESC')
+    @favorites = Favorite.where(user_id: @user.id).all
   end
 
   def followings
