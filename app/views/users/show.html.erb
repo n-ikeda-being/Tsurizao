@@ -84,7 +84,7 @@
             <p><strong><%= t('views.common.prefecture') %></strong><%= favorite.fishlist.prefecture.name %></p>
             <p><strong><%= t('views.common.place') %></strong><%= favorite.fishlist.place %></p>
             <p><strong><%= t('views.common.fishname') %></strong><%= favorite.fishlist.fishname %></p>
-            <%= link_to t('views.common.show'), fishlist %>
+            <%= link_to t('views.common.show'), fishlist_path(favorite.fishlist.id) %>
         <% end %>
     <% end %>
 <% else %>
@@ -93,4 +93,4 @@
 <%= paginate @fishlists %>
 
 
-<%= link_to t('views.common.fishlist_back'), fishlists_path %>
+<br><%= link_to t('views.common.fishlist_back'), fishlists_path %>
