@@ -7,6 +7,14 @@ class Fishlist < ApplicationRecord
     has_many :comments, dependent: :destroy
     has_many :favorites, dependent: :destroy
 
+    def self.ransackable_attributes(auth_object = nil)
+        %w[date prefecture_name place fishname fishingmethod user_name]
+    end
+
+    def self.ransackable_associations(auth_object = nil)
+        []
+    end
+
     def favorited?(user)
         favorites.where(user_id: user.id).exists?
     end

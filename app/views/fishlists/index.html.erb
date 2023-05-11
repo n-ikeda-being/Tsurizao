@@ -1,51 +1,81 @@
 <%= link_to t('views.common.new'), new_fishlist_path %>
 <h1><%= t('views.common.newpost') %></h1>
 
-<div id="fishlists" class="mx-3">
-  <% @fishlists.each do |fishlist| %>
+<!-- 検索窓 -->
+<%= search_form_for @q, url: fishlists_path do |f| %>
+<div style= "display: inline-block;">
+  <%= f.label :name_cont, '日付' %>
+    <%= f.search_field :date_cont, placeholder:"2023-01-01", class: "form-control", style: "width:200px" %>
+</div>
+<div style= "display: inline-block;">
+  <%= f.label :place_cont, '場所' %>
+    <%= f.search_field :place_cont, placeholder:"〇〇湖", class: "form-control", style: "width:200px" %>
+</div>
+<div style= "display: inline-block;">
+  <%= f.label :fishname_cont, '魚の種類' %>
+    <%= f.search_field :fishname, placeholder:"ブリ", class: "form-control", style: "width:200px" %>
+</div>
+<div style= "display: inline-block;">
+  <%= f.label :fishingmethod_cont, '釣り方' %>
+    <%= f.search_field :fishingmethod_cont, placeholder:"ルアー", class: "form-control", style: "width:200px" %>
+</div>
+<div style= "display: inline-block;">
+  <%= f.label :prefecture_name, '都道府県' %><br>
+    <%= f.collection_select :prefecture_name_eq, Prefecture.all, :name, :name, {include_blank: ''}, class: 'form-control' %>
+</div>
+    <%= f.submit '検索' %>
+<% end %>
+</div>
 
-  <p>
-    <strong><%= t('views.common.creater') %></strong>
-    <%= link_to fishlist.user.name, user_path(fishlist.user.id) %>
-  </p>
+<!-- 検索結果 -->
+<div class="m-3">
+<% if @fishlist.present? %>
+    <% @fishlist.each do |list| %>
+      <p>
+        <strong><%= t('views.common.creater') %></strong>
+        <%= link_to list.user.name, user_path(list.user.id) %>
+      </p>
 
-  <p>
-    <strong><%= t('views.common.date') %></strong>
-    <%= fishlist.date %>
-  </p>
+      <p>
+        <strong><%= t('views.common.date') %></strong>
+        <%= list.date %>
+      </p>
 
-  <p>
-    <strong><%= t('views.common.prefecture') %></strong>
-    <%= fishlist.prefecture.name %>
-  </p>
+      <p>
+        <strong><%= t('views.common.prefecture') %></strong>
+        <%= list.prefecture.name %>
+      </p>
 
-  <p>
-    <strong><%= t('views.common.place') %></strong>
-    <%= fishlist.place %>
-  </p>
+      <p>
+        <strong><%= t('views.common.place') %></strong>
+        <%= list.place %>
+      </p>
 
-  <p>
-    <strong><%= t('views.common.fishname') %></strong>
-    <%= fishlist.fishname %>
-  </p>
+      <p>
+        <strong><%= t('views.common.fishname') %></strong>
+        <%= list.fishname %>
+      </p>
 
-  <p>
-    <strong><%= t('views.common.fishingmethod') %></strong>
-    <%= fishlist.fishingmethod %>
-  </p>
+      <p>
+        <strong><%= t('views.common.fishingmethod') %></strong>
+        <%= list.fishingmethod %>
+      </p>
 
-  <p>
-    <% if fishlist.fishimg.attached? %>
-      <% fishlist.fishimg.each do |img| %>
-        <%= image_tag img,size: '100x100' %>
-      <% end %>
+      <p>
+        <% if list.fishimg.attached? %>
+          <% list.fishimg.each do |img| %>
+            <%= image_tag img,size: '100x100' %>
+          <% end %>
+        <% end %>
+      </p>
+
+      <p>
+        <%= link_to t('views.common.show'), list %>
+      </p>
     <% end %>
-  </p>
+<% else %>
+  該当するデータはありません
+<% end %>
 
-  <p>
-      <%= link_to t('views.common.show'), fishlist %>
-    </p>
-  <% end %>
-
-  <%= paginate @fishlists %>
+<%= paginate @fishlists %>
 </div>
