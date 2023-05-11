@@ -4,8 +4,12 @@
 <!-- 検索窓 -->
 <%= search_form_for @q, url: fishlists_path do |f| %>
 <div style= "display: inline-block;">
-  <%= f.label :name_cont, '日付' %>
+  <%= f.label :date_cont, '日付' %>
     <%= f.search_field :date_cont, placeholder:"2023-01-01", class: "form-control", style: "width:200px" %>
+</div>
+<div style= "display: inline-block;">
+  <%= f.label :prefecture_name, '都道府県' %><br>
+    <%= f.collection_select :prefecture_name_eq, Prefecture.all, :name, :name, {include_blank: ''}, class: 'form-control' %>
 </div>
 <div style= "display: inline-block;">
   <%= f.label :place_cont, '場所' %>
@@ -13,15 +17,11 @@
 </div>
 <div style= "display: inline-block;">
   <%= f.label :fishname_cont, '魚の種類' %>
-    <%= f.search_field :fishname, placeholder:"ブリ", class: "form-control", style: "width:200px" %>
+    <%= f.search_field :fishname_cont, placeholder:"ブリ", class: "form-control", style: "width:200px" %>
 </div>
 <div style= "display: inline-block;">
   <%= f.label :fishingmethod_cont, '釣り方' %>
     <%= f.search_field :fishingmethod_cont, placeholder:"ルアー", class: "form-control", style: "width:200px" %>
-</div>
-<div style= "display: inline-block;">
-  <%= f.label :prefecture_name, '都道府県' %><br>
-    <%= f.collection_select :prefecture_name_eq, Prefecture.all, :name, :name, {include_blank: ''}, class: 'form-control' %>
 </div>
     <%= f.submit '検索' %>
 <% end %>
