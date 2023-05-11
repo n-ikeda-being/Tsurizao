@@ -8,7 +8,7 @@ class Fishlist < ApplicationRecord
     has_many :favorites, dependent: :destroy
 
     def self.ransackable_attributes(auth_object = nil)
-        %w[date prefecture_name place fishname fishingmethod user_name]
+        %w[date prefecture_name prefecture_id place fishname fishingmethod user_name]
     end
 
     def self.ransackable_associations(auth_object = nil)
