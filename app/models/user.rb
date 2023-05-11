@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :fishlists, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  validates :name, presence: true, uniqueness: true, length: { minimum: 5 }
+  validates :name, presence: true, uniqueness: true
 
   has_many :relationships, class_name: 'Follow', foreign_key: 'follower_id', dependent: :destroy, inverse_of: :follower
   has_many :reverse_of_relationships, class_name: 'Follow', foreign_key: 'followed_id', dependent: :destroy, inverse_of: :followed
