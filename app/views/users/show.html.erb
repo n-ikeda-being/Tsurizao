@@ -78,14 +78,14 @@
 <h2>いいねした投稿一覧</h2>
 <% if @favorites.exists? %>
     <% @favorites.each do |favorite| %>
-    <% fishlist = favorite.fishlist %>
-        <p><strong><%= t('views.common.creater') %></strong><%= fishlist.user.name %></p>
-        <p><strong><%= t('views.common.date') %></strong><%= fishlist.date %></p>
-        <p><strong><%= t('views.common.prefecture') %></strong><%= fishlist.prefecture.name %></p>
-        <p><strong><%= t('views.common.place') %></strong><%= fishlist.place %></p>
-        <p><strong><%= t('views.common.fishname') %></strong><%= fishlist.fishname %></p>
-        <%= link_to t('views.common.show'), fishlist_path(fishlist.id) %>
-    <% end %>
+        <% fishlist = favorite.fishlist %>
+            <p><strong><%= t('views.common.creater') %></strong><%= fishlist.user.name %></p>
+            <p><strong><%= t('views.common.date') %></strong><%= fishlist.date %></p>
+            <p><strong><%= t('views.common.prefecture') %></strong><%= fishlist.prefecture.name %></p>
+            <p><strong><%= t('views.common.place') %></strong><%= fishlist.place %></p>
+            <p><strong><%= t('views.common.fishname') %></strong><%= fishlist.fishname %></p>
+            <%= link_to t('views.common.show'), fishlist_path(fishlist.id) %>
+        <% end %>
 <% else %>
     いいねした投稿はありません<br>
 <% end %>
