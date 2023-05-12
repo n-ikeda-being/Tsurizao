@@ -21,6 +21,10 @@
     <% end %>
 <% end %>
 
+<% if current_user == @user %>
+<%= link_to t('views.common.edit'), edit_user_registration_path %><br>
+<% end %>
+
 <h2>過去の投稿一覧</h2>
 <div id="fishlists">
     <% if @fishlists.empty? %>
@@ -63,33 +67,28 @@
 
                 <p>
                     <%= link_to t('views.common.show'), fishlist %>
-                    </p>
-                <% end %>
+                </p>
 
+                <% end %>
                 <%= paginate @fishlists %>
         </div>
     <% end %>
 </div>
 
-<% if current_user == @user %>
-<%= link_to t('views.common.edit'), edit_user_registration_path %><br>
-<% end %>
-
 <h2>いいねした投稿一覧</h2>
 <% if @favorites.exists? %>
-    <% @favorites.each  do |favorite| %>
-        <% @fishlists.each do |fishlist| %>
-            <p><strong><%= t('views.common.creater') %></strong><%= favorite.fishlist.user.name %></p>
-            <p><strong><%= t('views.common.date') %></strong><%= favorite.fishlist.date %></p>
-            <p><strong><%= t('views.common.prefecture') %></strong><%= favorite.fishlist.prefecture.name %></p>
-            <p><strong><%= t('views.common.place') %></strong><%= favorite.fishlist.place %></p>
-            <p><strong><%= t('views.common.fishname') %></strong><%= favorite.fishlist.fishname %></p>
-            <%= link_to t('views.common.show'), fishlist_path(favorite.fishlist.id) %>
-        <% end %>
+    <% @favorites.each do |favorite| %>
+    <% fishlist = favorite.fishlist %>
+        <p><strong><%= t('views.common.creater') %></strong><%= fishlist.user.name %></p>
+        <p><strong><%= t('views.common.date') %></strong><%= fishlist.date %></p>
+        <p><strong><%= t('views.common.prefecture') %></strong><%= fishlist.prefecture.name %></p>
+        <p><strong><%= t('views.common.place') %></strong><%= fishlist.place %></p>
+        <p><strong><%= t('views.common.fishname') %></strong><%= fishlist.fishname %></p>
+        <%= link_to t('views.common.show'), fishlist_path(fishlist.id) %>
     <% end %>
 <% else %>
     いいねした投稿はありません<br>
-<% end  %>
+<% end %>
 <%= paginate @fishlists %>
 
 
