@@ -27,55 +27,55 @@
 <% end %>
 </div>
 
-<!-- 検索結果 -->
-<div class="m-3">
-<% if @fishlist.present? %>
-    <% @fishlist.each do |list| %>
-      <p>
-        <strong><%= t('views.common.creater') %></strong>
-        <%= link_to list.user.name, user_path(list.user.id) %>
-      </p>
-
-      <p>
-        <strong><%= t('views.common.date') %></strong>
-        <%= list.date %>
-      </p>
-
-      <p>
-        <strong><%= t('views.common.prefecture') %></strong>
-        <%= list.prefecture.name %>
-      </p>
-
-      <p>
-        <strong><%= t('views.common.place') %></strong>
-        <%= list.place %>
-      </p>
-
-      <p>
-        <strong><%= t('views.common.fishname') %></strong>
-        <%= list.fishname %>
-      </p>
-
-      <p>
-        <strong><%= t('views.common.fishingmethod') %></strong>
-        <%= list.fishingmethod %>
-      </p>
-
-      <p>
-        <% if list.fishimg.attached? %>
-          <% list.fishimg.each do |img| %>
-            <%= image_tag img,size: '100x100' %>
-          <% end %>
+<div class="row m-4">
+  <% if @fishlist.present? %>
+    <% @fishlist.each_slice(3) do |list_group| %>
+      <div class="row">
+        <% list_group.each do |list| %>
+          <div class="col-md-4">
+            <div class="border">
+              <p>
+                <strong><%= t('views.common.creater') %></strong>
+                <%= link_to list.user.name, user_path(list.user.id) %>
+              </p>
+              <p>
+                <strong><%= t('views.common.date') %></strong>
+                <%= list.date %>
+              </p>
+              <p>
+                <strong><%= t('views.common.prefecture') %></strong>
+                <%= list.prefecture.name %>
+              </p>
+              <p>
+                <strong><%= t('views.common.place') %></strong>
+                <%= list.place %>
+              </p>
+              <p>
+                <strong><%= t('views.common.fishname') %></strong>
+                <%= list.fishname %>
+              </p>
+              <p>
+                <strong><%= t('views.common.fishingmethod') %></strong>
+                <%= list.fishingmethod %>
+              </p>
+              <p>
+                <% if list.fishimg.attached? %>
+                  <% list.fishimg.each do |img| %>
+                    <%= image_tag img, size: '100x100' %>
+                  <% end %>
+                <% end %>
+              </p>
+              <p>
+                <%= link_to t('views.common.show'), list %>
+              </p>
+            </div>
+          </div>
         <% end %>
-      </p>
-
-      <p>
-        <%= link_to t('views.common.show'), list %>
-      </p>
+      </div>
     <% end %>
-<% else %>
-  該当するデータはありません
-<% end %>
+  <% else %>
+    <p>該当するデータはありません</p>
+  <% end %>
+</div>
 
 <%= paginate @fishlists %>
-</div>
