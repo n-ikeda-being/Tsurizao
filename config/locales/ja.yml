@@ -241,6 +241,7 @@ ja:
       update_date: 最終更新日：
       comment_text: 内容
       comment_user: 名前
+      contact: 問合せ
     pagination:
       first: '最初'
       last: '最後'
