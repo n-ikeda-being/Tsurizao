@@ -1,5 +1,5 @@
-<%= link_to t('views.common.new'), new_fishlist_path %>
-<h1><%= t('views.common.newpost') %></h1>
+<div class="font_s2"><%= link_to t('views.common.new'), new_fishlist_path %></div>
+<div class="font_s3 font_bold"><%= t('views.common.newpost') %></div>
 
 <!-- 検索窓 -->
 <%= search_form_for @q, url: fishlists_path do |f| %>
