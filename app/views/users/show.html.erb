@@ -64,7 +64,7 @@
             </div>
         <% end %>
     </div>
-<%= paginate @fishlists %>
+    <%= paginate @fishlists %>
 </div>
 
 <div class="m-4 text-center">
@@ -92,5 +92,5 @@
     <% end %>
     <%= paginate @fishlists %>
 
-    <br><%= link_to t('views.common.fishlist_back'), fishlists_path %>
+    <%= link_to t('views.common.fishlist_back'), fishlists_path %>
 </div>

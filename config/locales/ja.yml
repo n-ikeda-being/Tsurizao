@@ -212,7 +212,7 @@ ja:
       destroy: 削除
       new: 🎣 釣った魚を記録する
       back: 戻る
-      fishlist_back: 他の人の投稿を見る
+      fishlist_back: すべての投稿を見る
       user_fishlist_back: 投稿者の他の投稿を見る
       all: 一覧
       delete_confirm: よろしいですか？
@@ -234,7 +234,7 @@ ja:
       fishingmethod: 釣り方：
       fishimg: 写真：
       mypage: 🏠 マイページ
-      allfishes:  📚 他の人の投稿を見る
+      allfishes:  📚 すべての投稿を見る
       newpost: 最新の投稿
       creater: 投稿者：
       created_date: 作成日：

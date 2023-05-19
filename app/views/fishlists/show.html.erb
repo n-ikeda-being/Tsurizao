@@ -1,47 +1,51 @@
-<%= render @fishlist %>
+<div class="m-4">
+  <h1><%= t('views.common.show') %></h1>
+  <%= render @fishlist %>
 
-💓<%=  @likes_count %>
-<% if @fishlist.user.id != current_user.id %>
-  <% if @fishlist.favorited?(current_user) %>
-      <%= button_to fishlist_favorite_path(@fishlist.id), method: :delete do %>
-          <span class="red">❤︎</span> いいねを送りました！
-      <% end %>
-  <% else %>
-      <%= button_to fishlist_favorites_path(@fishlist.id), method: :post do %>
-          <span>❤︎ いいねを送りましょう！</span>
-      <% end %>
-  <% end %>
-<% end %><br>
-
-<div>
   <% if @fishlist.user.id == current_user.id %>
     <%= link_to t('views.common.edit'), edit_fishlist_path(@fishlist) %>
     <%= button_to t('views.common.destroy'), @fishlist, method: :delete %>
   <% end %>
 
-<h2>コメント投稿</h2>
-<%= form_with model: [@fishlist, @comment], method: :fishlist do |f| %>
-  <%= f.text_area :comment_content %>
-  <%= f.submit '投稿' %>
-<% end %>
+  💓<%=  @likes_count %>
+  <% if @fishlist.user.id != current_user.id %>
+    <% if @fishlist.favorited?(current_user) %>
+        <%= button_to fishlist_favorite_path(@fishlist.id), method: :delete do %>
+            <span class="red">❤︎</span> いいねを送りました！
+        <% end %>
+    <% else %>
+        <%= button_to fishlist_favorites_path(@fishlist.id), method: :post do %>
+            <span>❤︎ いいねを送りましょう！</span>
+        <% end %>
+    <% end %>
+  <% end %><br>
 
-<% if @comments.empty? %>
-    コメントはまだありません<br>
-<% else %>
-  <h2>コメント一覧</h2>
-  <% @comments.each do |c| %>
-    <strong><%= c.user_name %></strong> さん：
-    <%= c.comment_content %>
-      <% if c.user_id == current_user.id %>
-        <div style= "display: inline-block;">
-          <div style="margin: 5px;">
-            <%= button_to '削除', fishlist_comment_path(@fishlist, c), method: :delete %>
-          </div>
-        </div>
-      <% end %><br>
+  <div>
+
+  <h2>コメント投稿</h2>
+  <%= form_with model: [@fishlist, @comment], method: :fishlist do |f| %>
+    <%= f.text_area :comment_content %>
+    <%= f.submit '投稿' %>
   <% end %>
-<% end %>
 
-  <%= link_to t('views.common.fishlist_back'), fishlists_path %><br>
-  <%= link_to t('views.common.user_fishlist_back'), user_path(@fishlist.user.id) %>
+  <% if @comments.empty? %>
+      コメントはまだありません<br>
+  <% else %>
+    <h2>コメント一覧</h2>
+    <% @comments.each do |c| %>
+      <strong><%= c.user_name %></strong> さん：
+      <%= c.comment_content %>
+        <% if c.user_id == current_user.id %>
+          <div style= "display: inline-block;">
+            <div style="margin: 5px;">
+              <%= button_to '削除', fishlist_comment_path(@fishlist, c), method: :delete %>
+            </div>
+          </div>
+        <% end %><br>
+    <% end %>
+  <% end %>
+
+    <%= link_to t('views.common.fishlist_back'), fishlists_path %><br>
+    <%= link_to t('views.common.user_fishlist_back'), user_path(@fishlist.user.id) %>
+  </div>
 </div>
