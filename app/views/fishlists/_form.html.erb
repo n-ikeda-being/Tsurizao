@@ -1,6 +1,6 @@
 <%= form_with(model: fishlist) do |form| %>
   <% if fishlist.errors.any? %>
-    <div style="color: red">
+    <div class="red">
       <h2>保存できませんでした</h2>
 
       <ul>
@@ -59,7 +59,7 @@
                 <%= image_tag img,size: '50x50' %>
               <% end %><br>
           <% end %>
-      <div style="color: red">最大６枚までアップできます<br></div>
+      <div class="red">最大６枚までアップできます<br></div>
       <%= form.file_field :fishimg, multiple: true %>
   </div><br>
 

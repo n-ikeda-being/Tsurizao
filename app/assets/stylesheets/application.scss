@@ -16,10 +16,7 @@
 
 @import "bootstrap";
 
-.border {
-    height: 500px;
-}
-
+// フォント系はここで。font_s(=size),s〇の数字と実際のフォントサイズは=でなくて良い。
 .font_s1 {
     font-size: 14px;
 }
@@ -28,14 +25,43 @@
     font-size: 30px;
 }
 
-.font_s3 {
-    font-size: 30px;
-}
-
 .font_bold {
     font-weight: bold;
 }
 
+// 色はここで
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
+
+// マージン・パディング系はここで
 .actions {
     margin-top: 10px;
+}
+
+.text_left {
+    text-align: left;
+    display: inline-block;
+}
+
+// 高さ、幅系はここで
+.width_1 {
+    width: 200px;
+}
+
+.container {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.border {
+    height: 500px;
+}
+
+.border > * {
+    box-sizing: content-box;
 }

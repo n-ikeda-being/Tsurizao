@@ -3,8 +3,6 @@
   <head>
   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
     <title>Tsurizao</title>
-        <p class="notice text-left" style= "color: green" ><%= notice %></p>
-        <p class="alert text-left" style= "color: red" ><%= alert %></p>
         <% if user_signed_in? %>
       <ul>
         <strong><%= current_user.name %></strong> でログイン中です
@@ -40,6 +38,8 @@
   </head>
 
   <body class="bg-light">
+      <div class="notice green" ><%= notice %></div>
+      <div class="alert red" ><%= alert %></div>
     <%= yield %>
   </body>
 </html>

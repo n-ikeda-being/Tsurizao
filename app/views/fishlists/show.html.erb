@@ -4,7 +4,7 @@
 <% if @fishlist.user.id != current_user.id %>
   <% if @fishlist.favorited?(current_user) %>
       <%= button_to fishlist_favorite_path(@fishlist.id), method: :delete do %>
-          <span style="color:red;">❤︎</span> いいねを送りました！
+          <span class="red">❤︎</span> いいねを送りました！
       <% end %>
   <% else %>
       <%= button_to fishlist_favorites_path(@fishlist.id), method: :post do %>
