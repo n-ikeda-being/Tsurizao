@@ -210,7 +210,7 @@ ja:
       show: 詳細
       edit: 編集
       destroy: 削除
-      new: 🎣 釣った魚を記録する 🎣
+      new: 🎣 釣った魚を記録する
       back: 戻る
       fishlist_back: 他の人の投稿を見る
       user_fishlist_back: 投稿者の他の投稿を見る
@@ -219,7 +219,7 @@ ja:
       title_new: "%{name}の新規作成"
       title_edit: "%{name}の編集"
       title_show: "%{name}の詳細"
-      sign_out: ログアウト
+      sign_out: 🚪 ログアウト
       minimum_length: "%{length}文字以上"
       send: 送信
       no_comment: コメントはまだありません
@@ -233,15 +233,15 @@ ja:
       fishweight: 重さ：
       fishingmethod: 釣り方：
       fishimg: 写真：
-      mypage: マイページ
-      allfishes: 他の人の投稿を見る
+      mypage: 🏠 マイページ
+      allfishes: 👀 他の人の投稿を見る
       newpost: 最新の投稿
       creater: 投稿者：
       created_date: 作成日：
       update_date: 最終更新日：
       comment_text: 内容
       comment_user: 名前
-      contact: 問合せ
+      contact: 📧 問合せ
     pagination:
       first: '最初'
       last: '最後'
@@ -266,7 +266,7 @@ ja:
       follow: フォロー
       unfollow: フォロー解除
     index:
-      user: アカウント一覧
+      user: 👥 アカウント一覧
       email: メールアドレス
       name: アカウント名
       avatar: アイコン
@@ -289,9 +289,4 @@ ja:
       notice: "フォローしました。"
     destroy:
       notice: "フォロー解除しました。"
-  # devise-i18n-viewsをオーバーライド
-  devise:
-    registrations:
-      edit:
-        title: "アカウント編集"
 

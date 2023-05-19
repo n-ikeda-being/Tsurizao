@@ -9,8 +9,11 @@
         <li>
           <%= link_to t('views.common.mypage'), user_path(current_user) %>
         </li>
-                <li>
+        <li>
           <%= link_to t('views.common.allfishes'), fishlists_path %>
+        </li>
+        <li>
+          <%= link_to t('views.common.new'), new_fishlist_path %>
         </li>
         <li>
           <%= link_to t('users.index.user'), users_path %>

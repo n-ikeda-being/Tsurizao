@@ -1,11 +1,11 @@
+<div class="m-4">
 <h2><%= t('.edit_account') %></h2>
 
-<div class="m-4">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <strong><%= f.label :email %></strong><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
@@ -14,12 +14,13 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name_with_validation %><br />
+    <strong><%= f.label :name %></strong>
+    <div class="font_s1 red">※10文字以内で入力してください。</div>
     <%= f.text_field :name, autofocus: true, autocomplete: "name" %><br>
   </div>
 
   <div class="field">
-    <%= f.label :avatar %><br>
+    <strong><%= f.label :avatar %></strong><br>
     <% if @user.avatar.attached? %>
       <%= image_tag @user.avatar,size: '50x50' %><br>
     <% end %>
@@ -27,17 +28,17 @@
   </div>
 
   <div class="field">
-    <%= f.label t('.new_password') %> <i></i>（<%= @minimum_password_length %> 文字以上）※パスワードを変更しない場合は不要です <br />
+    <strong><%= f.label t('.new_password') %> </strong><i></i>（<%= @minimum_password_length %> 文字以上）※パスワードを変更しない場合は不要です <br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <strong><%= f.label :password_confirmation %></strong><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i><%= t('.we_need_your_current_password_to_confirm_your_changes') %></i><br />
+    <strong><%= f.label :current_password %></strong> <i><%= t('.we_need_your_current_password_to_confirm_your_changes') %></i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
