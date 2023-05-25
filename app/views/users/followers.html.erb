@@ -1,2 +1,4 @@
-<h2> <%= t('users.show.followers') %> </h2>
-<%= render partial: "follow", locals: {users: @users} %>
+<div class="m-4">
+    <h2> <%= t('users.show.followers') %> </h2>
+    <%= render partial: "follow", locals: {users: @users} %>
+</div>

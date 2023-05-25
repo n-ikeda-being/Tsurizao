@@ -259,8 +259,8 @@ ja:
       email: メールアドレス
       name: アカウント名
       avatar: アイコン
-      followings: フォロー一覧
-      followers: フォロワー一覧
+      followings: フォロー中
+      followers: フォロワー
       followings_count: フォロー数：
       followers_count: フォロワー数：
       follow: フォロー

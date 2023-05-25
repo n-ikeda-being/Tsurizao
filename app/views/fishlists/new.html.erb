@@ -1,9 +1,8 @@
-<h1><%= t('views.common.new') %></h1>
+<div class="m-4">
+  <h1><%= t('views.common.new') %></h1>
 
-<%= render "form", fishlist: @fishlist %>
+  <%= render "form", fishlist: @fishlist %>
 
-<br>
-
-<div>
   <%= link_to t('views.common.back'), fishlists_path %>
+
 </div>
