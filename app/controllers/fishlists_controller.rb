@@ -3,9 +3,9 @@ class FishlistsController < ApplicationController
 
   # GET /fishlists or /fishlists.json
   def index
-    @fishlists = Fishlist.all.order(updated_at: :desc).page(params[:page]).per(6)
+    @fishlists = Fishlist.all.order(updated_at: :desc).page(params[:page]).per(3)
     @q = Fishlist.ransack(params[:q])
-    @fishlist = @q.result.order(updated_at: :desc).page(params[:page]).per(6)
+    @fishlist = @q.result.order(updated_at: :desc).page(params[:page]).per(3)
   end
 
   # GET /fishlists/1 or /fishlists/1.json
