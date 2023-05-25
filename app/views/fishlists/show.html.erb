@@ -33,7 +33,7 @@
   <% else %>
     <h2>コメント一覧</h2>
     <% @comments.each do |c| %>
-      <strong><%= c.user_name %></strong> さん：
+      <strong><%= link_to c.user.name, user_path(c.user.id) %></strong> さん：
       <%= c.comment_content %>
         <% if c.user_id == current_user.id %>
           <div style= "display: inline-block;">
