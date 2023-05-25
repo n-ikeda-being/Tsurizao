@@ -1,7 +1,5 @@
 <div class="m-4 text-center">
-    <% unless current_user == @user %>
-        <h1><%= t('.user') %></h1>
-    <% else %>
+    <% if current_user == @user %>
         <h1><%= t('views.common.mypage') %></h1>
     <% end %>
 
