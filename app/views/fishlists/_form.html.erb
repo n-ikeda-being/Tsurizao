@@ -39,12 +39,12 @@
 
     <div>
       <strong><%= form.label t('views.common.fishlength'), style: "display: block" %></strong>
-      <%= form.number_field :fishlength %> cm
+      <%= form.number_field :fishlength, in: 0..999999 %> cm
     </div>
 
     <div>
       <strong><%= form.label t('views.common.fishweight'), style: "display: block" %></strong>
-      <%= form.number_field :fishweight %> g
+      <%= form.number_field :fishweight, in: 0..999999 %> g
     </div>
 
     <div>
@@ -54,7 +54,7 @@
 
     <div>
         <% if fishlist.fishimg.attached? %>
-        削除する画像にチェックボックスを付けてください<br>
+        削除する画像に✓を付けてください<br>
             <% fishlist.fishimg.each do |img| %>
                   <%= form.check_box :img_ids, {:multiple => true}, img.id, false %>
                   <%= image_tag img,size: '50x50' %>
