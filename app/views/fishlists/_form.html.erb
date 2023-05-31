@@ -19,7 +19,12 @@
 
     <div>
       <strong><%= form.label t('views.common.time'), style: "display: block" %></strong>
-      <%= form.time_field :time %>
+      <%= form.time_field :time %> ～ <%= form.time_field :maxtime %>
+    </div>
+
+    <div>
+      <strong><%= form.label t('views.common.weather'), style: "display: block" %></strong>
+      <%= form.text_field :weather %>
     </div>
 
     <div>
@@ -38,13 +43,18 @@
     </div>
 
     <div>
+      <strong><%= form.label t('views.common.quantity'), style: "display: block" %></strong>
+      <%= form.number_field :quantity, in: 0..999999 %> 匹
+    </div>
+
+    <div>
       <strong><%= form.label t('views.common.fishlength'), style: "display: block" %></strong>
-      <%= form.number_field :fishlength, in: 0..999999 %> cm
+      <%= form.number_field :fishlength, in: 0..999999 %> ～ <%= form.number_field :maxfishlength, in: 0..999999 %> cm
     </div>
 
     <div>
       <strong><%= form.label t('views.common.fishweight'), style: "display: block" %></strong>
-      <%= form.number_field :fishweight, in: 0..999999 %> g
+      <%= form.number_field :fishweight, in: 0..999999 %> ～ <%= form.number_field :maxfishweight, in: 0..999999 %> g
     </div>
 
     <div>
@@ -63,6 +73,11 @@
         <div class="red">最大６枚までアップできます<br></div>
         <%= form.file_field :fishimg, multiple: true %>
     </div><br>
+
+    <div>
+      <strong><%= form.label t('views.common.message'), style: "display: block" %></strong>
+      <%= form.text_area :message %>
+    </div>
 
     <div>
       <%= form.submit %>

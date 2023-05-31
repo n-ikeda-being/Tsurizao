@@ -225,14 +225,17 @@ ja:
       no_comment: コメントはまだありません
       date: 日付：
       time: 時間：
+      weather: 天気：
       prefecture: 都道府県：
       place: 場所：
       map: 地図：
       fishname: 魚の種類：
+      quantity: 数：
       fishlength: 大きさ：
       fishweight: 重さ：
       fishingmethod: 釣り方：
       fishimg: 写真：
+      message: ひとこと：
       mypage: 🏠 マイページ
       allfishes:  📚 すべての投稿を見る
       newpost: 最新の投稿

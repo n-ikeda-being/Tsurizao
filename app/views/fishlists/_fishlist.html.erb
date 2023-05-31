@@ -12,14 +12,17 @@
 
   <p>
     <strong><%= t('views.common.time') %></strong>
-    <% unless fishlist.time.nil? %>
-      <% if fishlist.time.strftime("%H") && (00..11).cover?(fishlist.time.strftime("%H").to_i) %>
-        AM
-      <% else %>
-        PM
-      <% end %>
+    <% if fishlist.time.present? %>
       <%= fishlist.time.strftime("%H:%M") %>
     <% end %>
+    <% if fishlist.maxtime.present? %>
+      ～ <%= fishlist.maxtime.strftime("%H:%M") %>
+    <% end %>
+  </p>
+
+  <p>
+    <strong><%= t('views.common.weather') %></strong>
+    <%= fishlist.weather %>
   </p>
 
   <p>
@@ -38,13 +41,28 @@
   </p>
 
   <p>
+    <strong><%= t('views.common.quantity') %></strong>
+    <%= fishlist.quantity %> 匹
+  </p>
+
+  <p>
     <strong><%= t('views.common.fishlength') %></strong>
-    <%= fishlist.fishlength %> cm
+    <% if fishlist.fishlength.present? %>
+      <%= fishlist.fishlength %>
+    <% end %>
+    <% if fishlist.maxfishlength.present? %>
+      ～ <%= fishlist.maxfishlength %>
+    <% end %> cm
   </p>
 
   <p>
     <strong><%= t('views.common.fishweight') %></strong>
-    <%= fishlist.fishweight %> g
+    <% if fishlist.fishweight.present? %>
+      <%= fishlist.fishweight %>
+    <% end %>
+    <% if fishlist.maxfishweight.present? %>
+      ～ <%= fishlist.maxfishweight %>
+    <% end %> g
   </p>
 
   <p>
@@ -58,6 +76,11 @@
         <%= image_tag img,size: '200x200' %>
       <% end %>
     <% end %>
+  </p>
+
+  <p>
+    <strong><%= t('views.common.message') %></strong>
+    <%= fishlist.message %>
   </p>
 
   <p class="font_s1">
