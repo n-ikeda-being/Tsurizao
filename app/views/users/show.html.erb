@@ -11,6 +11,8 @@
         <%= image_tag "noimage.jpeg",size: '80x80' %>
     <% end %><br>
 
+    <%= @user.profile %><br>
+
     <%= t('.followings_count') %>
     <%= link_to @user.followings.count, followings_user_path(@user) %>
     <%= t('.followers_count') %>

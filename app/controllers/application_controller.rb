@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
     before_action :configure_permitted_parameters, if: :devise_controller?
 
     def configure_permitted_parameters
-        keys = %i[email name avatar]
+        keys = %i[email name avatar profile]
         devise_parameter_sanitizer.permit(:sign_up, keys: keys)
         devise_parameter_sanitizer.permit(:account_update, keys: keys)
         @users = User.with_attached_avatar.order(:id).page(params[:page])
