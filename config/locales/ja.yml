@@ -236,6 +236,8 @@ ja:
       fishingmethod: 釣り方：
       fishimg: 写真：
       message: ひとこと：
+      public: 公開
+      private: 非公開
       mypage: 🏠 マイページ
       allfishes:  📚 すべての投稿を見る
       newpost: 最新の投稿
