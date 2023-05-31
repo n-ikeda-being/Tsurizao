@@ -14,7 +14,4 @@ Rails.application.routes.draw do
     end
     resource :follows, only: [:create, :destroy]
   end
-  resource :contacts, only: [:new, :create] do
-    get "/thanks" => "contacts#thanks"
-  end
 end
