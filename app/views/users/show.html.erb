@@ -66,7 +66,6 @@
             </div>
         <% end %>
     </div>
-    <%= paginate @fishlists %>
 </div>
 
 <div class="m-4 text-center">
@@ -80,20 +79,12 @@
                         <% favorite_group.each do |favorite| %>
                         <% fishlist = favorite.fishlist %>
                         <div class="col-md-4">
-                            <div class="border text-center">
-                                <p><strong><%= t('views.common.creater') %></strong><%= fishlist.user.name %></p>
+                            <div class="border border_2 text-center">
+                                <p><strong><%= t('views.common.creater') %></strong><%= link_to fishlist.user.name, user_path(fishlist.user.id) %></p>
                                 <p><strong><%= t('views.common.date') %></strong><%= fishlist.date %></p>
                                 <p><strong><%= t('views.common.prefecture') %></strong><%= fishlist.prefecture.name %></p>
                                 <p><strong><%= t('views.common.place') %></strong><%= fishlist.place %></p>
                                 <p><strong><%= t('views.common.fishname') %></strong><%= fishlist.fishname %></p>
-                                <p><strong><%= t('views.common.fishingmethod') %></strong><%= fishlist.fishingmethod %></p>
-                                <p>
-                                    <% if fishlist.fishimg.attached? %>
-                                        <% fishlist.fishimg.each do |img| %>
-                                            <%= image_tag img,size: '100x100' %>
-                                        <% end %>
-                                    <% end %>
-                                </p>
                                 <%= link_to t('views.common.show'), fishlist_path(fishlist.id) %>
                             </div>
                         </div>
@@ -106,7 +97,4 @@
                     いいねした投稿はまだありません<br>
         <% end %>
     </div>
-    <%= paginate @fishlists %>
-
-    <%= link_to t('views.common.fishlist_back'), fishlists_path %>
 </div>
