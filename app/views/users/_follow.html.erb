@@ -1,0 +1,19 @@
+<% users.each do |user| %>
+    <table>
+        <tbody>
+            <tr>
+                <td class="width_1"><%= user.name %></td>
+                <td>
+                    <% if user.avatar.attached? %>
+                        <%= image_tag user.avatar,size: '50x50' %>
+                    <% else %>
+                        <%= image_tag "noimage.jpeg",size: '50x50' %>
+                    <% end %>
+                </td>
+                <td><%= link_to t('views.common.show'), user %></td>
+            </tr>
+        </tbody>
+    </table><br>
+<% end %>
+
+<%= link_to t('views.common.back'), users_path %>

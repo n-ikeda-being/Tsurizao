@@ -1,7 +1,37 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
     <title>Tsurizao</title>
+        <% if user_signed_in? %>
+      <ul>
+        <strong><%= current_user.name %></strong> でログイン中です
+        <li>
+          <%= link_to t('views.common.mypage'), user_path(current_user) %>
+        </li>
+        <li>
+          <%= link_to t('views.common.allfishes'), fishlists_path %>
+        </li>
+        <li>
+          <%= link_to t('views.common.new'), new_fishlist_path %>
+        </li>
+        <li>
+          <%= link_to t('users.index.user'), users_path %>
+        </li>
+        <li>
+          <%= link_to t('views.common.contact'),  'https://twitter.com/TsurizaoSupport', target: :_blank, rel: "noopener noreferrer" %>
+        </li>
+        </ul>
+      <ul>
+        <li>
+          <%= link_to t('devise.registrations.edit.title'), edit_user_registration_path %>
+        </li>
+        <li>
+          <%= link_to t('views.common.sign_out'), destroy_user_session_path, method: :delete %>
+        </li>
+      </ul>
+    <% end %>
+  </div>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,7 +40,9 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="bg-light">
     <%= yield %>
+      <div class="notice green text-center" ><%= notice %></div>
+      <div class="alert red text-center"><%= alert %></div>
   </body>
 </html>

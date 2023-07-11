@@ -1,0 +1,49 @@
+<div class="m-4">
+  <%= render @fishlist %>
+
+<% if @fishlist.user.id == current_user.id %>
+  <%= link_to t('views.common.edit'), edit_fishlist_path(@fishlist) %>
+  <%= button_to t('views.common.destroy'), @fishlist, method: :delete %>
+<% end %>
+
+  <% if @fishlist.favorited?(current_user) %>
+    <%= button_to fishlist_favorite_path(@fishlist), method: :delete, class: "button" do %>
+      <div class="container">
+        <div class="heart_red" title="いいねを取り消す" ><span class="heart_count"><%= @likes_count %></span></div>
+      </div>
+    <% end %>
+  <% else %>
+    <%= button_to fishlist_favorites_path(@fishlist), method: :post, class: "button" do %>
+      <div class="container">
+        <div class="heart_gray" title="いいねする" ><span class="heart_count"><%= @likes_count %></span></div>
+      </div>
+    <% end %>
+  <% end %><br>
+
+  <div>
+
+  <div class="font_s3">💬コメント</div>
+  <%= form_with model: [@fishlist, @comment], method: :fishlist do |f| %>
+    <%= f.text_area :comment_content %>
+    <%= f.submit '投稿' %>
+  <% end %>
+
+  <% if @comments.empty? %>
+      コメントはまだありません<br>
+  <% else %>
+    <% @comments.each do |c| %>
+      <strong><%= link_to c.user.name, user_path(c.user.id) %></strong> さん：
+      <%= c.comment_content %>
+        <% if c.user_id == current_user.id %>
+          <div style= "display: inline-block;">
+            <div style="margin: 5px;">
+              <%= button_to '削除', fishlist_comment_path(@fishlist, c), method: :delete %>
+            </div>
+          </div>
+        <% end %><br>
+    <% end %>
+  <% end %>
+
+    <%= link_to t('views.common.user_fishlist_back'), user_path(@fishlist.user.id) %>
+  </div>
+</div>

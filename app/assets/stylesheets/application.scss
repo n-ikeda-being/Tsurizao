@@ -1,0 +1,145 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap";
+
+// フォント系はここで。font_s(=size),s〇の数字と実際のフォントサイズは=でなくて良い。
+.font_s1 {
+    font-size: 14px;
+}
+
+.font_s2 {
+    font-size: 30px;
+}
+
+.font_s3 {
+    font-size: 20px;
+}
+
+.font_bold {
+    font-weight: bold;
+}
+
+// 色はここで
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
+
+// マージン・パディング系はここで
+.actions {
+    margin-top: 10px;
+}
+
+.text_left {
+    text-align: left;
+    display: inline-block;
+}
+
+// 高さ、幅系はここで
+.width_1 {
+    width: 180px;
+}
+
+.container {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.border {
+    height: 500px;
+}
+
+.border > * {
+    box-sizing: content-box;
+}
+
+.border_2 {
+    height: 250px;
+}
+
+.pagination {
+    justify-content: center;
+}
+
+// ハート
+.button {
+    border: none;
+    background: transparent;
+}
+
+.heart_red {
+    position: absolute;
+    width: 3px;
+    height: 2.7px;
+    left: 2%;
+    margin-top: -8.75px;
+    margin-left: -7.5px;
+}
+
+.heart_red:before,
+.heart_red:after {
+    position: absolute;
+    content: "";
+    left: 12.5px;
+    top: 0;
+    width: 12.5px;
+    height: 20px;
+    background: #f72552;
+    border-radius: 12.5px 12.5px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+.heart_red:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+.heart_gray {
+    position: absolute;
+    width: 3px;
+    height: 2.7px;
+    left: 2%;
+    margin-top: -8.75px;
+    margin-left: -7.5px;
+}
+
+.heart_gray:before,
+.heart_gray:after {
+    position: absolute;
+    content: "";
+    left: 12.5px;
+    top: 0;
+    width: 12.5px;
+    height: 20px;
+    background: #afadae;
+    border-radius: 12.5px 12.5px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+.heart_gray:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+.heart_count {
+    margin-left: 27px;
+}

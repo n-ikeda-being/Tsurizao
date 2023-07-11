@@ -1,0 +1,2 @@
+module FishlistsHelper
+end
