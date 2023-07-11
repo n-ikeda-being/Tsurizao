@@ -77,3 +77,69 @@
 .pagination {
     justify-content: center;
 }
+
+// ハート
+.button {
+    border: none;
+    background: transparent;
+}
+
+.heart_red {
+    position: absolute;
+    width: 3px;
+    height: 2.7px;
+    left: 3.5%;
+    margin-top: -8.75px;
+    margin-left: -7.5px;
+}
+
+.heart_red:before,
+.heart_red:after {
+    position: absolute;
+    content: "";
+    left: 12.5px;
+    top: 0;
+    width: 12.5px;
+    height: 20px;
+    background: #f72552;
+    border-radius: 12.5px 12.5px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+.heart_red:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+.heart_gray {
+    position: absolute;
+    width: 3px;
+    height: 2.7px;
+    left: 3.5%;
+    margin-top: -8.75px;
+    margin-left: -7.5px;
+}
+
+.heart_gray:before,
+.heart_gray:after {
+    position: absolute;
+    content: "";
+    left: 12.5px;
+    top: 0;
+    width: 12.5px;
+    height: 20px;
+    background: #968f8f;
+    border-radius: 12.5px 12.5px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+.heart_gray:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+.heart_count {
+    margin-left: 27px;
+}

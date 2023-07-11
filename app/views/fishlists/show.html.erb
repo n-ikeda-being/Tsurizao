@@ -1,21 +1,22 @@
 <div class="m-4">
   <%= render @fishlist %>
 
-  <% if @fishlist.user.id == current_user.id %>
-    <%= link_to t('views.common.edit'), edit_fishlist_path(@fishlist) %>
-    <%= button_to t('views.common.destroy'), @fishlist, method: :delete %>
-  <% end %><br>
+<% if @fishlist.user.id == current_user.id %>
+  <%= link_to t('views.common.edit'), edit_fishlist_path(@fishlist) %>
+  <%= button_to t('views.common.destroy'), @fishlist, method: :delete %>
+<% end %>
 
-  💓<%=  @likes_count %>
-  <% if @fishlist.user.id != current_user.id %>
-    <% if @fishlist.favorited?(current_user) %>
-        <%= button_to fishlist_favorite_path(@fishlist.id), method: :delete do %>
-            <span>❤︎</span> いいねを取り消す
-        <% end %>
-    <% else %>
-        <%= button_to fishlist_favorites_path(@fishlist.id), method: :post do %>
-            <span class="red">❤︎</span> いいねする</span>
-        <% end %>
+  <% if @fishlist.favorited?(current_user) %>
+    <%= button_to fishlist_favorite_path(@fishlist), method: :delete, class: "button" do %>
+      <div class="container">
+        <div class="heart_red" title="いいねを取り消す" ><span class="heart_count"><%= @likes_count %></span></div>
+      </div>
+    <% end %>
+  <% else %>
+    <%= button_to fishlist_favorites_path(@fishlist), method: :post, class: "button" do %>
+      <div class="container">
+        <div class="heart_gray" title="いいねする" ><span class="heart_count"><%= @likes_count %></span></div>
+      </div>
     <% end %>
   <% end %><br>
 
