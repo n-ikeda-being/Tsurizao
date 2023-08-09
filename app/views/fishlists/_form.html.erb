@@ -14,7 +14,7 @@
 
     <div>
       <strong><%= form.label t('views.common.date'), style: "display: block" %></strong>
-      <%= form.date_field :date %>
+      <%= form.date_field :date, data: { date_format: 'YYYY/MM/DD' } %>
     </div>
 
     <div>

@@ -6,7 +6,7 @@
   <%= search_form_for @q, url: fishlists_path do |f| %>
   <div style= "display: inline-block;">
     <%= f.label :date_cont, '日付' %>
-      <%= f.search_field :date_cont, placeholder:"例：2023-01-01", class: "form-control", style: "width:200px" %>
+      <%= f.date_field :date_cont, class: "form-control", style: "width:200px" %>
   </div>
   <div style= "display: inline-block;">
     <%= f.label :prefecture_name, '都道府県' %><br>
@@ -43,7 +43,7 @@
                 </p>
                 <p>
                   <strong><%= t('views.common.date') %></strong>
-                  <%= list.date %>
+                  <%= list.date.strftime('%Y/%m/%d') %>
                 </p>
                 <p>
                   <strong><%= t('views.common.prefecture') %></strong>
