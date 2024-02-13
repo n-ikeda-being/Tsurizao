@@ -1,0 +1,100 @@
+<div class="m-4 text-center">
+    <% if current_user == @user %>
+        <h1><%= t('views.common.mypage') %></h1>
+    <% end %>
+
+    <%= @user.name %><br>
+
+    <% if @user.avatar.attached? %>
+        <%= image_tag @user.avatar,size: '80x80' %>
+    <% else %>
+        <%= image_tag "noimage.jpeg",size: '80x80' %>
+    <% end %><br>
+
+    <% if @user.profile.present? %>
+        <%= @user.profile %><br><br>
+    <% end %>
+
+    <%= t('.followings_count') %>
+    <%= link_to @user.followings.count, followings_user_path(@user) %>
+    <%= t('.followers_count') %>
+    <%= link_to @user.followers.count, followers_user_path(@user) %><br>
+
+    <% unless current_user == @user %>
+        <% if current_user.following?(@user) %>
+            <%= button_to t('.unfollow'), user_follows_path(@user), method: :delete %>
+        <% else %>
+            <%= button_to t('.follow'), user_follows_path(@user), method: :post %>
+        <% end %>
+    <% end %>
+</div>
+
+<div class="m-4 text-center">
+    <h2>過去の投稿</h2>
+    <div id="fishlists">
+        <% if @fishlists.empty? %>
+            まだ過去の投稿はありません<br>
+        <% else %>
+            <div class="row m-4">
+                <div class="container">
+                    <% @fishlists.each_slice(3) do |list_group| %>
+                        <div class="row">
+                            <% list_group.each do |fishlist| %>
+                                <div class="col-md-4">
+                                    <div class="border">
+                                        <p><strong><%= t('views.common.date') %></strong><%= fishlist.date %></p>
+                                        <p><strong><%= t('views.common.prefecture') %></strong><%= fishlist.prefecture.name %></p>
+                                        <p><strong><%= t('views.common.place') %></strong><%= fishlist.place %></p>
+                                        <p><strong><%= t('views.common.fishname') %></strong><%= fishlist.fishname %></p>
+                                        <p><strong><%= t('views.common.fishingmethod') %></strong><%= fishlist.fishingmethod %></p>
+                                        <p>
+                                            <% if fishlist.fishimg.attached? %>
+                                                <% fishlist.fishimg.each do |img| %>
+                                                    <%= image_tag img,size: '100x100' %>
+                                                <% end %>
+                                            <% end %>
+                                        </p>
+                                        <p>
+                                            <%= link_to t('views.common.show'), fishlist %>
+                                        </p>
+                                    </div>
+                                </div>
+                            <% end %>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
+
+<div class="m-4 text-center">
+    <h2>いいねした投稿</h2>
+    <div id="fishlists">
+        <% if @favorites.exists? %>
+            <div class="row m-4">
+                <div class="container">
+                    <% @favorites.each_slice(3) do |favorite_group| %>
+                    <div class="row">
+                        <% favorite_group.each do |favorite| %>
+                        <% fishlist = favorite.fishlist %>
+                        <div class="col-md-4">
+                            <div class="border border_2 text-center">
+                                <p><strong><%= t('views.common.creater') %></strong><%= link_to fishlist.user.name, user_path(fishlist.user.id) %></p>
+                                <p><strong><%= t('views.common.date') %></strong><%= fishlist.date %></p>
+                                <p><strong><%= t('views.common.prefecture') %></strong><%= fishlist.prefecture.name %></p>
+                                <p><strong><%= t('views.common.place') %></strong><%= fishlist.place %></p>
+                                <p><strong><%= t('views.common.fishname') %></strong><%= fishlist.fishname %></p>
+                                <%= link_to t('views.common.show'), fishlist_path(fishlist.id) %>
+                            </div>
+                        </div>
+                        <% end %>
+                    </div>
+                    <% end %>
+                </div>
+            </div>
+        <% else %>
+                    いいねした投稿はまだありません<br>
+        <% end %>
+    </div>
+</div>

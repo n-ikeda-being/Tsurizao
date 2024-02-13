@@ -1,0 +1,96 @@
+<div id="<%= dom_id fishlist %>">
+
+  <p>
+    <strong><%= t('views.common.creater') %></strong>
+    <%= link_to fishlist.user.name, user_path(fishlist.user.id) %>
+  </p>
+
+  <p>
+    <strong><%= t('views.common.date') %></strong>
+    <%= fishlist.date.strftime("%Y/%m/%d") %>
+  </p>
+
+  <p>
+    <strong><%= t('views.common.time') %></strong>
+    <% if fishlist.time.present? %>
+      <%= fishlist.time.strftime("%H:%M") %>
+    <% end %>
+    <% if fishlist.maxtime.present? %>
+      ～ <%= fishlist.maxtime.strftime("%H:%M") %>
+    <% end %>
+  </p>
+
+  <p>
+    <strong><%= t('views.common.weather') %></strong>
+    <%= fishlist.weather %>
+  </p>
+
+  <p>
+    <strong><%= t('views.common.prefecture') %></strong>
+    <%= fishlist.prefecture.name %>
+  </p>
+
+  <p>
+    <strong><%= t('views.common.place') %></strong>
+    <%= fishlist.place %>
+  </p>
+
+  <p>
+    <strong><%= t('views.common.fishname') %></strong>
+    <%= fishlist.fishname %>
+  </p>
+
+  <p>
+    <strong><%= t('views.common.quantity') %></strong>
+    <%= fishlist.quantity %> 匹
+  </p>
+
+  <p>
+    <strong><%= t('views.common.fishlength') %></strong>
+    <% if fishlist.fishlength.present? %>
+      <%= fishlist.fishlength %>
+    <% end %>
+    <% if fishlist.maxfishlength.present? %>
+      ～ <%= fishlist.maxfishlength %>
+    <% end %> cm
+  </p>
+
+  <p>
+    <strong><%= t('views.common.fishweight') %></strong>
+    <% if fishlist.fishweight.present? %>
+      <%= fishlist.fishweight %>
+    <% end %>
+    <% if fishlist.maxfishweight.present? %>
+      ～ <%= fishlist.maxfishweight %>
+    <% end %> g
+  </p>
+
+  <p>
+    <strong><%= t('views.common.fishingmethod') %></strong>
+    <%= fishlist.fishingmethod %>
+  </p>
+
+  <p>
+    <% if fishlist.fishimg.attached? %>
+      <% fishlist.fishimg.each do |img| %>
+        <%= image_tag img,size: '200x200' %>
+      <% end %>
+    <% end %>
+  </p>
+
+  <p>
+    <strong><%= t('views.common.message') %></strong>
+    <%= fishlist.message %>
+  </p>
+
+  <p class="font_s1">
+    <%= t('views.common.created_date') %>
+    <%= fishlist.created_at.to_fs(:datetime_jp) %>
+  </p>
+
+  <p class="font_s1">
+    <%= t('views.common.update_date') %>
+    <%= fishlist.updated_at.to_fs(:datetime_jp) %>
+  </p>
+
+</div>

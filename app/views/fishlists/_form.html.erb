@@ -1,0 +1,87 @@
+<div class="m-4">
+    <%= form_with(model: fishlist) do |form| %>
+    <% if fishlist.errors.any? %>
+      <div class="red">
+        <h2>保存できませんでした</h2>
+
+        <ul>
+          <% fishlist.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div>
+      <strong><%= form.label t('views.common.date'), style: "display: block" %></strong>
+      <%= form.date_field :date, data: { date_format: 'YYYY/MM/DD' } %>
+    </div>
+
+    <div>
+      <strong><%= form.label t('views.common.time'), style: "display: block" %></strong>
+      <%= form.time_field :time %> ～ <%= form.time_field :maxtime %>
+    </div>
+
+    <div>
+      <strong><%= form.label t('views.common.weather'), style: "display: block" %></strong>
+      <%= form.text_field :weather %>
+    </div>
+
+    <div>
+      <strong><%= form.label t('views.common.prefecture'), style: "display: block" %></strong>
+      <%= form.collection_select(:prefecture_id, Prefecture.all, :id, :name) %>
+    </div>
+
+    <div>
+      <strong><%= form.label t('views.common.place'), style: "display: block" %></strong>
+      <%= form.text_field :place %>
+    </div>
+
+    <div>
+      <strong><%= form.label t('views.common.fishname'), style: "display: block" %></strong>
+      <%= form.text_field :fishname %>
+    </div>
+
+    <div>
+      <strong><%= form.label t('views.common.quantity'), style: "display: block" %></strong>
+      <%= form.number_field :quantity, in: 0..999999 %> 匹
+    </div>
+
+    <div>
+      <strong><%= form.label t('views.common.fishlength'), style: "display: block" %></strong>
+      <%= form.number_field :fishlength, in: 0..999999 %> ～ <%= form.number_field :maxfishlength, in: 0..999999 %> cm
+    </div>
+
+    <div>
+      <strong><%= form.label t('views.common.fishweight'), style: "display: block" %></strong>
+      <%= form.number_field :fishweight, in: 0..999999 %> ～ <%= form.number_field :maxfishweight, in: 0..999999 %> g
+    </div>
+
+    <div>
+      <strong><%= form.label t('views.common.fishingmethod'), style: "display: block" %></strong>
+      <%= form.text_field :fishingmethod %>
+    </div>
+
+    <div>
+        <% if fishlist.fishimg.attached? %>
+        削除する画像に✓を付けてください<br>
+            <% fishlist.fishimg.each do |img| %>
+                  <%= form.check_box :img_ids, {:multiple => true}, img.id, false %>
+                  <%= image_tag img,size: '50x50' %>
+                <% end %><br>
+            <% end %>
+        <div class="red">最大６枚までアップできます<br></div>
+        <%= form.file_field :fishimg, multiple: true %>
+    </div><br>
+
+    <div>
+      <strong><%= form.label t('views.common.message'), style: "display: block" %></strong>
+      <%= form.text_area :message %>
+    </div>
+
+    <div>
+      <%= form.submit %>
+    </div>
+    <% end %>
+
+</div>
